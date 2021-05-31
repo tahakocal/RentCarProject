@@ -1,6 +1,6 @@
-﻿using System;
-using Business.Concrete;
+﻿using Business.Concrete;
 using DataAccess.Concrete.InMemory;
+using System;
 
 namespace ConsoleUI
 {

@@ -1,14 +1,11 @@
-﻿using System;
+﻿using DataAccess.Abstract;
+using Entities.Concrete;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccess.Abstract;
-using Entities.Concrete;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class InMemoryCarDal:ICarDal
+    public class InMemoryCarDal : ICarDal
     {
         List<Car> _cars;
 
@@ -53,7 +50,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Add(Car car)
         {
-            _cars.Add(car);   
+            _cars.Add(car);
         }
 
         public void Update(Car car)
