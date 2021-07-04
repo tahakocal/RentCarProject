@@ -1,7 +1,7 @@
-﻿using System;
-using Business.Concrete;
+﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using System;
 
 namespace ConsoleUI
 {
@@ -14,10 +14,10 @@ namespace ConsoleUI
             carManager.Add(new Car { Id = 2, BrandId = 1, CarName = "BMW", Description = "BMW M4", ColorId = 1, ModelYear = 2020, DailyPrice = 0 });
 
 
-            //foreach (var VARIABLE in carManager.GetAll())
-            //{
-            //    Console.WriteLine(carManager);
-            //}
+            foreach (var VARIABLE in carManager.GetAll())
+            {
+                Console.WriteLine(carManager);
+            }
 
         }
     }
