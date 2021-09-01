@@ -10,8 +10,6 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfColorDal : IColorDal
     {
-
-
         public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
         {
             using (CarDatabaseContext context = new CarDatabaseContext())
