@@ -18,7 +18,6 @@ namespace ConsoleUI
             {
                 Console.WriteLine(carManager);
             }
-
         }
     }
 }
