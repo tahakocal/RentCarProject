@@ -33,11 +33,13 @@ namespace Business.Concrete
         public void Delete(Car car)
         {
             _carDal.Delete(car);
+            Console.WriteLine(car.Id + " Id'li araba bilgileri silindi!");
         }
 
         public void Update(Car car)
         {
             _carDal.Update(car);
+            Console.WriteLine(car.Id + " Id'li araba bilgileri güncellendi!");
         }
 
         public List<Car> GetAll()
