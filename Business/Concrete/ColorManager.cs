@@ -13,27 +13,27 @@ namespace Business.Concrete
         {
             _colorDal = colorDal;
         }
-        public void Add(Color car)
+        public void Add(Color color)
         {
-            if (car.Name.Length >= 2)
+            if (color.Name.Length >= 2)
             {
-                _colorDal.Add(car);
-                Console.WriteLine(car.Id + " 'idli " + car.Name + " markasi sisteme basariyla eklendi!");
+                _colorDal.Add(color);
+                Console.WriteLine(color.Id + " 'idli " + color.Name + " rengi sisteme basariyla eklendi!");
             }
             else
                 Console.WriteLine("Renk ismi en az iki harfli olmalidir!");
         }
 
-        public void Update(Color car)
+        public void Update(Color color)
         {
-            _colorDal.Update(car);
-            Console.WriteLine(car.Id + " 'idli " + car.Name + " rengi sistemde güncellendi!");
+            _colorDal.Update(color);
+            Console.WriteLine(color.Id + " 'idli " + color.Name + " rengi sistemde güncellendi!");
         }
 
-        public void Delete(Color car)
+        public void Delete(Color color)
         {
-            _colorDal.Delete(car);
-            Console.WriteLine(car.Id + " 'idli " + car.Name + " rengi sistemden silindi!");
+            _colorDal.Delete(color);
+            Console.WriteLine(color.Id + " 'idli " + color.Name + " rengi sistemden silindi!");
         }
     }
 }

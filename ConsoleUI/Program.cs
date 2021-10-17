@@ -44,11 +44,11 @@ namespace ConsoleUI
                 Id = 3, BrandId = 3, CarName = "Scania", Description = "R420", ColorId = 3, ModelYear = 2019, DailyPrice = 950
             });
             
-
+                
             List<Car> cars = carManager.GetAll();
             foreach (var car in cars)
             {
-                Console.WriteLine(car);
+                Console.WriteLine(car.CarName);
             }
         }
     }
