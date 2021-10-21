@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
+using System.Collections.Generic;
 
 namespace Business.Concrete
 {
@@ -13,6 +14,12 @@ namespace Business.Concrete
         {
             _colorDal = colorDal;
         }
+
+        public List<Color> GetAll()
+        {
+            return _colorDal.GetAll();
+        }
+
         public void Add(Color color)
         {
             if (color.Name.Length >= 2)

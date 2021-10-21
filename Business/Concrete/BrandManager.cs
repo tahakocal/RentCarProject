@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
+using System.Collections.Generic;
 
 namespace Business.Concrete
 {
@@ -13,6 +14,12 @@ namespace Business.Concrete
         {
             _brandDal = brandDal;
         }
+
+        public List<Brand> GetAll()
+        {
+            return _brandDal.GetAll();
+        }
+
         public void Add(Brand brand)
         {
             if (brand.Name.Length >= 2)
