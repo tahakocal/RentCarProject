@@ -24,12 +24,12 @@ namespace Business.Concrete
 
         public Result Add(Brand brand)
         {
-            if (brand.Name.Length >= 2)
+            if (brand.Name.Length < 2)
             {
-                _brandDal.Add(brand);
-                return new Result(true,Messages.BrandAdded);
+                return new ErrorResult(Messages.LenghtNotEnough);
             }
-            return new ErrorResult(Messages.LenghtNotEnough);
+            _brandDal.Add(brand);
+            return new Result(true, Messages.BrandAdded);
         }
 
         public Result Update(Brand brand)

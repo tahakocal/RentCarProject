@@ -63,8 +63,7 @@ namespace ConsoleUI
                 DailyPrice = 950
             });
 
-
-            List<Car> cars = carManager.GetAll();
+            List<Car> cars = carManager.GetAll().Data;
             foreach (var car in cars)
             {
                 Console.WriteLine(car.CarName);

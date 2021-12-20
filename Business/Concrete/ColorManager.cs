@@ -17,20 +17,19 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        public IDataResult<List<Color>> GetAll()
+        public DataResult<List<Color>> GetAll()
         {
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
         }
 
         public Result Add(Color color)
         {
-            if (color.Name.Length >= 2)
+            if (color.Name.Length < 2)
             {
-                _colorDal.Add(color);
-                
+                return new ErrorResult(Messages.LenghtNotEnough);
             }
-            else
-                Console.WriteLine("Renk ismi en az iki harfli olmalidir!");
+            _colorDal.Add(color);
+            return new SuccessResult(Messages.ColorAdded);
         }
 
         public Result Update(Color color)
