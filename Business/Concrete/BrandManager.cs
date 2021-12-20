@@ -16,7 +16,7 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
-        public DataResult<List<Brand>> GetAll()
+        public IDataResult<List<Brand>> GetAll()
         {
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }

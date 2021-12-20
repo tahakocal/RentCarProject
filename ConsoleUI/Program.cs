@@ -20,6 +20,21 @@ namespace ConsoleUI
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             brandManager.Add(new Brand { Id = 1, Name = "Audi" });
             brandManager.Add(new Brand { Id = 2, Name = "Kia" });
+
+
+            var result = brandManager.GetAll();
+            if (result.Success == true)
+            {
+                foreach (var brand in result.Data)
+                {
+                    Console.WriteLine(brand.Name);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
         }
 
         private static void ColorManagerTest()
@@ -64,9 +79,8 @@ namespace ConsoleUI
             });
 
 
-
             var result = carManager.GetAll();
-            if (result.Success==true)
+            if (result.Success == true)
             {
                 foreach (var car in result.Data)
                 {
@@ -78,7 +92,7 @@ namespace ConsoleUI
                 Console.WriteLine(result.Message);
             }
 
-            
+
         }
     }
 }

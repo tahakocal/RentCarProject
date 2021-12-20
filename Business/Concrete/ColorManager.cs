@@ -16,7 +16,7 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        public DataResult<List<Color>> GetAll()
+        public IDataResult<List<Color>> GetAll()
         {
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
         }
