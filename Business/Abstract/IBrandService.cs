@@ -1,7 +1,7 @@
 ﻿
-using System.Collections.Generic;
 using Core.Utilities.Result;
 using Entities.Concrete;
+using System.Collections.Generic;
 
 namespace Business.Abstract
 {

@@ -1,10 +1,10 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
-using Business.Constants;
-using Core.Utilities.Result;
 
 namespace Business.Concrete
 {
@@ -23,7 +23,7 @@ namespace Business.Concrete
             if (car.CarName.Length > 2 && car.DailyPrice > 0)
             {
                 return new ErrorResult(Messages.LenghtNotEnough);
-                
+
             }
             _carDal.Add(car);
             return new Result(true, Messages.CarAdded);
@@ -55,7 +55,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == brandId));
 
-         
+
         }
 
         public IDataResult<List<Car>> GetCarsByColorId(int colorId)
