@@ -3,6 +3,8 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using Business.Constants;
+using Core.Utilities.Result;
 
 namespace Business.Concrete
 {
@@ -16,30 +18,31 @@ namespace Business.Concrete
         }
 
 
-        public void Add(Car car)
+        public Result Add(Car car)
         {
             if (car.CarName.Length > 2 && car.DailyPrice > 0)
             {
-                Console.WriteLine("Araba kaydedildi");
-                _carDal.Add(car);
+                return new ErrorResult(Messages.LenghtNotEnough);
+                
             }
-            else
-            {
-                Console.WriteLine("Arabanin ismi iki karakterden az olmamali ve arabanin fiyati sifirdan buyuk olmalidir.");
-            }
+            _carDal.Add(car);
+            return new Result(true, Messages.CarAdded);
         }
 
 
-        public void Delete(Car car)
+        public Result Delete(Car car)
         {
             _carDal.Delete(car);
             Console.WriteLine(car.Id + " Id'li araba bilgileri silindi!");
         }
 
-        public void Update(Car car)
+        public Result Update(Car car)
         {
+            return new ErrorResult(car.Id, " ", Messages.CarNotUpdated);
+            
+
             _carDal.Update(car);
-            Console.WriteLine(car.Id + " Id'li araba bilgileri güncellendi!");
+            return new Result(true, Messages.CarUpdated);
         }
 
         public List<Car> GetAll()
