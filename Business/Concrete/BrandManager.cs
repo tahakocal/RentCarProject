@@ -3,6 +3,8 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using Business.Constants;
+using Core.Utilities.Result;
 
 namespace Business.Concrete
 {
@@ -15,32 +17,31 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
-        public List<Brand> GetAll()
+        public DataResult<List<Brand>> GetAll()
         {
-            return _brandDal.GetAll();
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
 
-        public void Add(Brand brand)
+        public Result Add(Brand brand)
         {
             if (brand.Name.Length >= 2)
             {
                 _brandDal.Add(brand);
-                Console.WriteLine(brand.Id + " 'idli " + brand.Name + " markasi sisteme basariyla eklendi!");
+                return new Result(true,Messages.BrandAdded);
             }
-            else
-                Console.WriteLine("Marka ismi en az iki harfli olmalidir!");
+            return new ErrorResult(Messages.LenghtNotEnough);
         }
 
-        public void Update(Brand brand)
+        public Result Update(Brand brand)
         {
             _brandDal.Delete(brand);
-            Console.WriteLine(brand.Id + " 'idli " + brand.Name + " markasi sistemden silindi!");
+            return new Result(true, Messages.BrandUpdated);
         }
 
-        public void Delete(Brand brand)
+        public Result Delete(Brand brand)
         {
             _brandDal.Update(brand);
-            Console.WriteLine(brand.Id + " 'idli marka bilgileri guncellendi!");
+            return new Result(true, Messages.BrandDeleted);
         }
     }
 }

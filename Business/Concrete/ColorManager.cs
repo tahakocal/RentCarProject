@@ -3,6 +3,8 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using Business.Constants;
+using Core.Utilities.Result;
 
 namespace Business.Concrete
 {
@@ -15,32 +17,32 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        public List<Color> GetAll()
+        public IDataResult<List<Color>> GetAll()
         {
-            return _colorDal.GetAll();
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
         }
 
-        public void Add(Color color)
+        public Result Add(Color color)
         {
             if (color.Name.Length >= 2)
             {
                 _colorDal.Add(color);
-                Console.WriteLine(color.Id + " 'idli " + color.Name + " rengi sisteme basariyla eklendi!");
+                
             }
             else
                 Console.WriteLine("Renk ismi en az iki harfli olmalidir!");
         }
 
-        public void Update(Color color)
+        public Result Update(Color color)
         {
             _colorDal.Update(color);
-            Console.WriteLine(color.Id + " 'idli " + color.Name + " rengi sistemde güncellendi!");
+            return new Result(true, Messages.ColorUpdated);
         }
 
-        public void Delete(Color color)
+        public Result Delete(Color color)
         {
             _colorDal.Delete(color);
-            Console.WriteLine(color.Id + " 'idli " + color.Name + " rengi sistemden silindi!");
+            return new Result(true, Messages.ColorDeleted);
         }
     }
 }
