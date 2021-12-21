@@ -3,6 +3,7 @@ using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
+using Business.Constants;
 
 namespace Business.Concrete
 {
@@ -16,17 +17,25 @@ namespace Business.Concrete
 
         public Result Add(Customer customer)
         {
-            throw new NotImplementedException();
+            if (customer.CompanyName.Length <= 2)
+            {
+                return new ErrorResult(Messages.LenghtNotEnough);
+            }
+            _customerDal.Add(customer);
+            return new SuccessResult(Messages.CustomerAdded);
+
         }
 
         public Result Delete(Customer customer)
         {
-            throw new NotImplementedException();
+            _customerDal.Delete(customer);
+            return new SuccessResult(Messages.CustomerDeleted);
         }
 
         public Result Update(Customer customer)
         {
-            throw new NotImplementedException();
+            _customerDal.Update(customer);
+            return new SuccessResult(Messages.CustomerUpdated);
         }
     }
 }

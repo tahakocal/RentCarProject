@@ -20,6 +20,18 @@
         public static string ColorUpdated = "Renk Guncellendi";
         public static string ColorDeleted = "Renk Silindi";
 
+        public static string UserAdded = "Kullanici Eklendi";
+        public static string UserUpdated = "Kullanici Guncellendi";
+        public static string UserDeleted = "Kullanici Silindi";
+        public static string UserListed = "Kullanici Listelendi";
+
+        public static string RentalAdded = "Kiralik Arac Eklendi";
+        public static string RentalUpdated = "Kiralik Arac Guncellendi";
+        public static string RentalDeleted = "Kiralik Arac Silindi";
+
+        public static string CustomerAdded = "Musteri Eklendi";
+        public static string CustomerUpdated = "Musteri Guncellendi";
+        public static string CustomerDeleted = "Musteri Silindi";
 
     }
 }

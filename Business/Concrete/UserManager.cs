@@ -3,6 +3,8 @@ using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
+using System.Collections.Generic;
+using Business.Constants;
 
 namespace Business.Concrete
 {
@@ -15,19 +17,35 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
+      
+
         public Result Add(User user)
         {
-            throw new NotImplementedException();
+            if (user.FirstName.Length < 2)
+            {
+                return new ErrorResult(Messages.LenghtNotEnough);
+
+            }
+            _userDal.Add(user);
+            return new SuccessResult(Messages.UserAdded);
         }
 
         public Result Update(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Update(user);
+            return new SuccessResult(Messages.UserUpdated);
         }
 
         public Result Delete(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Delete(user);
+            return new SuccessResult( Messages.UserDeleted);
         }
+
+        public IDataResult<List<User>> GetAll()
+        {
+            return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.UserListed);
+        }
+
     }
 }

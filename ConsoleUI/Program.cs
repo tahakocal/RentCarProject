@@ -12,6 +12,19 @@ namespace ConsoleUI
             CarManagerTest();
             //ColorManagerTest();
             //BrandManagerTest();
+            //UserManagerTest();
+        }
+
+        private static void UserManagerTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            userManager.Add(new User
+                {Id = 1, FirstName = "Burak", LastName = "Picak", Email = "burak@gmail.com", Password = "a1234dsa"});
+            userManager.Add(new User
+                {Id = 2, FirstName = "Alperen", LastName = "Aktas", Email = "Alperen@gmail.com", Password = "a2354ds"});
+
+
+
         }
 
         private static void BrandManagerTest()

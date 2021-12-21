@@ -3,6 +3,7 @@ using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
+using Business.Constants;
 
 namespace Business.Concrete
 {
@@ -17,17 +18,19 @@ namespace Business.Concrete
 
         public Result Add(Rental rental)
         {
-            throw new NotImplementedException();
+           _rentalDal.Add(rental);
+           return new SuccessResult(Messages.RentalAdded);
         }
 
         public Result Update(Rental rental)
         {
-            throw new NotImplementedException();
+            _rentalDal.Update(rental);
+            return new SuccessResult(Messages.RentalUpdated);
         }
 
         public Result Delete(Rental rental)
         {
-            throw new NotImplementedException();
+            return new SuccessResult(Messages.RentalDeleted);
         }
     }
 }
