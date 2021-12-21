@@ -1,9 +1,9 @@
-﻿using Business.Abstract;
+﻿using System.Collections.Generic;
+using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
-using Business.Constants;
 
 namespace Business.Concrete
 {
@@ -16,10 +16,15 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
+        public IDataResult<List<Rental>> GetAll()
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.RentalListed);
+        }
+
         public Result Add(Rental rental)
         {
-           _rentalDal.Add(rental);
-           return new SuccessResult(Messages.RentalAdded);
+            _rentalDal.Add(rental);
+            return new SuccessResult(Messages.RentalAdded);
         }
 
         public Result Update(Rental rental)

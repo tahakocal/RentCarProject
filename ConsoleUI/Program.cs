@@ -19,10 +19,21 @@ namespace ConsoleUI
         {
             UserManager userManager = new UserManager(new EfUserDal());
             userManager.Add(new User
-                {Id = 1, FirstName = "Burak", LastName = "Picak", Email = "burak@gmail.com", Password = "a1234dsa"});
+            { Id = 1, FirstName = "Burak", LastName = "Picak", Email = "burak@gmail.com", Password = "a1234dsa" });
             userManager.Add(new User
-                {Id = 2, FirstName = "Alperen", LastName = "Aktas", Email = "Alperen@gmail.com", Password = "a2354ds"});
-
+            { Id = 2, FirstName = "Alperen", LastName = "Aktas", Email = "Alperen@gmail.com", Password = "a2354ds" });
+            var result = userManager.GetAll();
+            if (result.Success == true)
+            {
+                foreach (var user in result.Data)
+                {
+                    Console.WriteLine(user.FirstName);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
 
 
         }

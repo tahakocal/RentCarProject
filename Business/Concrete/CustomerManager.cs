@@ -1,9 +1,9 @@
-﻿using Business.Abstract;
+﻿using System.Collections.Generic;
+using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
-using Business.Constants;
 
 namespace Business.Concrete
 {
@@ -13,6 +13,11 @@ namespace Business.Concrete
         public CustomerManager(ICustomerDal customerDal)
         {
             _customerDal = customerDal;
+        }
+
+        public IDataResult<List<Customer>> GetAll()
+        {
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), Messages.CustomerListed);
         }
 
         public Result Add(Customer customer)

@@ -1,10 +1,9 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using Business.Constants;
 
 namespace Business.Concrete
 {
@@ -17,7 +16,7 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-      
+
 
         public Result Add(User user)
         {
@@ -39,7 +38,7 @@ namespace Business.Concrete
         public Result Delete(User user)
         {
             _userDal.Delete(user);
-            return new SuccessResult( Messages.UserDeleted);
+            return new SuccessResult(Messages.UserDeleted);
         }
 
         public IDataResult<List<User>> GetAll()
