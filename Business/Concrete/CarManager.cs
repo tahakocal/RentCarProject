@@ -20,7 +20,7 @@ namespace Business.Concrete
 
         public Result Add(Car car)
         {
-            if (car.CarName.Length > 2 && car.DailyPrice > 0)
+            if (car.CarName.Length < 2 && car.DailyPrice < 0)
             {
                 return new ErrorResult(Messages.LenghtNotEnough);
 
@@ -44,11 +44,15 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
+
             if (DateTime.Now.Hour == 19)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+
             }
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.CarListed);
+           
+           
         }
 
         public IDataResult<List<Car>> GetCarsByBrandId(int brandId)
