@@ -9,7 +9,7 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManagerTest();
+            CarManagerTest(); 
             //ColorManagerTest();
             //BrandManagerTest();
             //UserManagerTest();
@@ -65,6 +65,20 @@ namespace ConsoleUI
             ColorManager colorManager = new ColorManager(new EfColorDal());
             colorManager.Add(new Color { Id = 1, Name = "Siyah" });
             colorManager.Add(new Color { Id = 2, Name = "Beyaz" });
+
+            var result = colorManager.GetAll();
+            if (result.Success == true)
+            {
+                foreach (var color in result.Data)
+                {
+                    Console.WriteLine(color.Name);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
         }
 
         private static void CarManagerTest()
@@ -107,7 +121,7 @@ namespace ConsoleUI
             {
                 foreach (var car in result.Data)
                 {
-                    Console.WriteLine(car.CarName);
+                    Console.WriteLine(car.CarName," ",car.Description);
                 }
             }
             else
