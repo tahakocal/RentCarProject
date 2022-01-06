@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
 
         [HttpGet("getall")]
 
-        public IActionResult Getall()
+        public IActionResult GetAll()
         {
             var result = _carService.GetAll();
             if (result.Success)
@@ -98,7 +98,5 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
-
-
     }
 }
