@@ -9,7 +9,7 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManagerTest(); 
+            CarManagerTest();
             //ColorManagerTest();
             //BrandManagerTest();
             //UserManagerTest();
@@ -121,7 +121,7 @@ namespace ConsoleUI
             {
                 foreach (var car in result.Data)
                 {
-                    Console.WriteLine(car.CarName," ",car.Description);
+                    Console.WriteLine(car.CarName, " ", car.Description);
                 }
             }
             else
