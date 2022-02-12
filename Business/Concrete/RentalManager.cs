@@ -4,6 +4,8 @@ using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
+using Business.ValidationRules;
+using Core.Aspect.Autofac.Validation;
 
 namespace Business.Concrete
 {
@@ -21,6 +23,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.RentalListed);
         }
 
+        [ValidationAspect(typeof(RentalValidator))]
         public Result Add(Rental rental)
         {
             _rentalDal.Add(rental);

@@ -4,6 +4,8 @@ using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
+using Business.ValidationRules;
+using Core.Aspect.Autofac.Validation;
 
 namespace Business.Concrete
 {
@@ -20,6 +22,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), Messages.CustomerListed);
         }
 
+        [ValidationAspect(typeof(CustomerValidator))]
         public Result Add(Customer customer)
         {
             if (customer.CompanyName.Length <= 2)

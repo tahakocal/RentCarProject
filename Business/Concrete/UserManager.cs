@@ -4,6 +4,8 @@ using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
+using Business.ValidationRules;
+using Core.Aspect.Autofac.Validation;
 
 namespace Business.Concrete
 {
@@ -16,8 +18,7 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-
-
+        [ValidationAspect(typeof(RentalValidator))]
         public Result Add(User user)
         {
             if (user.FirstName.Length < 2)

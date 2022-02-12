@@ -4,6 +4,8 @@ using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
+using Business.ValidationRules;
+using Core.Aspect.Autofac.Validation;
 
 namespace Business.Concrete
 {
@@ -21,6 +23,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandListed);
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public Result Add(Brand brand)
         {
             if (brand.Name.Length < 2)

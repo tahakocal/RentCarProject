@@ -5,6 +5,8 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using Business.ValidationRules;
+using Core.Aspect.Autofac.Validation;
 
 namespace Business.Concrete
 {
@@ -17,7 +19,7 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-
+        [ValidationAspect(typeof(CarValidator))]
         public Result Add(Car car)
         {
             if (car.CarName.Length < 2 && car.DailyPrice < 0)
