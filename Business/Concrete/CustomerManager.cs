@@ -1,11 +1,11 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules;
+using Core.Aspect.Autofac.Validation;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
-using Business.ValidationRules;
-using Core.Aspect.Autofac.Validation;
 
 namespace Business.Concrete
 {

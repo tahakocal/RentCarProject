@@ -42,5 +42,14 @@
         public static string CustomerDeleted = "Musteri Silindi";
         public static string CustomerListed = "Musteriler Listelendi";
 
+        //CarImage
+        public static string CarImageAdded = "Araba Resmi Eklendi";
+        public static string CarImageDeleted = "Araba Resmi Silindi.";
+        public static string CarImageUpdated = "Araba Resmi Guncellendi.";
+        public static string CarImagesListed = "Araba Resimleri Listelendi.";
+        public static string CarImageListedById = "Araba Resimleri Idye gore Listelendi.";
+
+
+
     }
 }
