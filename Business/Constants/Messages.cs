@@ -1,7 +1,4 @@
-﻿using Core.Entities.Concrete;
-using System.Runtime.Serialization;
-
-namespace Business.Constants
+﻿namespace Business.Constants
 {
     public static class Messages
     {

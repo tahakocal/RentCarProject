@@ -4,7 +4,6 @@ using Core.Utilities.Result;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.JWT;
 using Entities.DTOs;
-using System.Collections.Generic;
 
 namespace Business.Concrete
 {
@@ -64,7 +63,7 @@ namespace Business.Concrete
         public IDataResult<AccessToken> CreateAccessToken(User user)
         {
             var claims = _userService.GetClaims(user);
-            var accessToken = _tokenHelper.CreateToken(user, (List<OperationClaim>)claims);
+            var accessToken = _tokenHelper.CreateToken(user, claims.Data);
             return new SuccessDataResult<AccessToken>(accessToken, "Token oluşturuldu");
         }
     }
