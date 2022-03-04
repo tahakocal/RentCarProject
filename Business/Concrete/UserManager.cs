@@ -2,9 +2,9 @@
 using Business.Constants;
 using Business.ValidationRules;
 using Core.Aspect.Autofac.Validation;
+using Core.Entities.Concrete;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
-using Entities.Concrete;
 using System.Collections.Generic;
 
 namespace Business.Concrete

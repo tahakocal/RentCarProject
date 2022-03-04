@@ -9,34 +9,34 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManagerTest();
-            ColorManagerTest();
-            BrandManagerTest();
-            UserManagerTest();
+            // CarManagerTest();
+            // ColorManagerTest();
+            // BrandManagerTest();
+            // UserManagerTest();
         }
 
-        private static void UserManagerTest()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            userManager.Add(new User
-            { Id = 1, FirstName = "Mahmut", LastName = "Bebek", Email = "mahmut@gmail.com", Password = "a1234dsa" });
-            userManager.Add(new User
-            { Id = 2, FirstName = "Ahmet", LastName = "Araba", Email = "Ahmet@gmail.com", Password = "a2354ds" });
-            var result = userManager.GetAll();
-            if (result.Success == true)
-            {
-                foreach (var user in result.Data)
-                {
-                    Console.WriteLine(user.FirstName);
-                }
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
+        //private static void UserManagerTest()
+        //{
+        //    UserManager userManager = new UserManager(new EfUserDal());
+        //    userManager.Add(new User
+        //    { Id = 1, FirstName = "Mahmut", LastName = "Bebek", Email = "mahmut@gmail.com", PasswordHash = });
+        //    userManager.Add(new User
+        //    { Id = 2, FirstName = "Ahmet", LastName = "Araba", Email = "Ahmet@gmail.com", PasswordHash =  });
+        //    var result = userManager.GetAll();
+        //    if (result.Success == true)
+        //    {
+        //        foreach (var user in result.Data)
+        //        {
+        //            Console.WriteLine(user.FirstName);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
 
 
-        }
+        //}
 
         private static void BrandManagerTest()
         {
