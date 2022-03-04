@@ -24,7 +24,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(BrandValidator))]
-        public Result Add(Brand brand)
+        public IResult Add(Brand brand)
         {
             if (brand.Name.Length < 2)
             {
@@ -34,13 +34,13 @@ namespace Business.Concrete
             return new Result(true, Messages.BrandAdded);
         }
 
-        public Result Update(Brand brand)
+        public IResult Update(Brand brand)
         {
             _brandDal.Delete(brand);
             return new Result(true, Messages.BrandUpdated);
         }
 
-        public Result Delete(Brand brand)
+        public IResult Delete(Brand brand)
         {
             _brandDal.Update(brand);
             return new Result(true, Messages.BrandDeleted);

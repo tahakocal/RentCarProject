@@ -19,7 +19,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(RentalValidator))]
-        public Result Add(User user)
+        public IResult Add(User user)
         {
             if (user.FirstName.Length < 2)
             {
@@ -30,13 +30,13 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserAdded);
         }
 
-        public Result Update(User user)
+        public IResult Update(User user)
         {
             _userDal.Update(user);
             return new SuccessResult(Messages.UserUpdated);
         }
 
-        public Result Delete(User user)
+        public IResult Delete(User user)
         {
             _userDal.Delete(user);
             return new SuccessResult(Messages.UserDeleted);
@@ -47,5 +47,14 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.UserListed);
         }
 
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IDataResult<User> GetByEmail(string email)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

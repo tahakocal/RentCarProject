@@ -24,19 +24,19 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(RentalValidator))]
-        public Result Add(Rental rental)
+        public IResult Add(Rental rental)
         {
             _rentalDal.Add(rental);
             return new SuccessResult(Messages.RentalAdded);
         }
 
-        public Result Update(Rental rental)
+        public IResult Update(Rental rental)
         {
             _rentalDal.Update(rental);
             return new SuccessResult(Messages.RentalUpdated);
         }
 
-        public Result Delete(Rental rental)
+        public IResult Delete(Rental rental)
         {
             return new SuccessResult(Messages.RentalDeleted);
         }

@@ -1,4 +1,7 @@
-﻿namespace Business.Constants
+﻿using Core.Entities.Concrete;
+using System.Runtime.Serialization;
+
+namespace Business.Constants
 {
     public static class Messages
     {
@@ -49,7 +52,13 @@
         public static string CarImagesListed = "Araba Resimleri Listelendi.";
         public static string CarImageListedById = "Araba Resimleri Idye gore Listelendi.";
 
+        public static string AuthorizationDenied = "Giris Rededildi";
 
-
+        public static string TokenCreated = "Token Olusturuldu !!";
+        public static string UserNotFound = "Kullanici Bulunamadi !!";
+        public static string WrongPassword = "Yanlis Sifre";
+        public static string SuccessfulLogin = "Giris Basarili";
+        public static string Registered = "Kayit olundu.";
+        public static string UserAvailable = "Kullanici zaten mevcut";
     }
 }

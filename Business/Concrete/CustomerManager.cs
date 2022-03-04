@@ -23,7 +23,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CustomerValidator))]
-        public Result Add(Customer customer)
+        public IResult Add(Customer customer)
         {
             if (customer.CompanyName.Length <= 2)
             {
@@ -34,13 +34,13 @@ namespace Business.Concrete
 
         }
 
-        public Result Delete(Customer customer)
+        public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);
             return new SuccessResult(Messages.CustomerDeleted);
         }
 
-        public Result Update(Customer customer)
+        public IResult Update(Customer customer)
         {
             _customerDal.Update(customer);
             return new SuccessResult(Messages.CustomerUpdated);

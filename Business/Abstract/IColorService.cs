@@ -7,8 +7,8 @@ namespace Business.Abstract
     public interface IColorService
     {
         IDataResult<List<Color>> GetAll();
-        Result Add(Color color);
-        Result Update(Color color);
-        Result Delete(Color color);
+        IResult Add(Color color);
+        IResult Update(Color color);
+        IResult Delete(Color color);
     }
 }
