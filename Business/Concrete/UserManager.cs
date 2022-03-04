@@ -5,6 +5,7 @@ using Core.Aspect.Autofac.Validation;
 using Core.Entities.Concrete;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
+using System;
 using System.Collections.Generic;
 
 namespace Business.Concrete
@@ -44,17 +45,26 @@ namespace Business.Concrete
 
         public IDataResult<List<User>> GetAll()
         {
-            return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.UserListed);
+            List<User> users;
+            try
+            {
+                users = _userDal.GetAll();
+            }
+            catch (Exception exception)
+            {
+                return new ErrorDataResult<List<User>>(exception.Message);
+            }
+            return new SuccessDataResult<List<User>>(users);
         }
 
         public IDataResult<List<OperationClaim>> GetClaims(User user)
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
         }
 
-        public IDataResult<User> GetByEmail(string email)
+        public User GetByMail(string email)
         {
-            throw new System.NotImplementedException();
+            return _userDal.Get(u => u.Email == email);
         }
     }
 }
