@@ -60,5 +60,7 @@
 
         public static string GetErrorUserMessage = "Üye bilgisi / bilgileri getirilemedi.";
         public static string GetSuccessUserMessage = "Üye bilgisi / bilgileri getirildi.";
+
+        public static string CarImageListed { get; internal set; }
     }
 }

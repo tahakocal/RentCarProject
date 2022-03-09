@@ -26,6 +26,8 @@ namespace Core.Utilities.Halper.FileHalper
             return new SuccessResult((_folderName + randomName + type).Replace("\\", "/"));
         }
 
+
+
         public static IResult Update(IFormFile file, string imagePath)
         {
             var type = Path.GetExtension(file.FileName);

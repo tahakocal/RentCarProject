@@ -7,6 +7,8 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using Business.BusinessAspects.Autofac;
+using Core.Aspect.Autofac.Caching;
 
 namespace Business.Concrete
 {
@@ -19,7 +21,9 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        [SecuredOperation("admin")]
         [ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
             if (car.CarName.Length < 2 && car.DailyPrice < 0)
