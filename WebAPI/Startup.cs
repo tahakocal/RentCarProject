@@ -56,10 +56,10 @@ namespace WebAPI
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                     };
-         
+
                 });
 
-            services.AddDependencyResolvers(new Core.Utilities.IoC.ICoreModule[] { 
+            services.AddDependencyResolvers(new Core.Utilities.IoC.ICoreModule[] {
             new CoreModule()
             });
         }
